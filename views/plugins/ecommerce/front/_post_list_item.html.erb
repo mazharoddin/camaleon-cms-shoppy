@@ -1,0 +1,47 @@
+<div class="col-sm-4">
+  <div class="product-image-wrapper">
+    <div class="single-products">
+      <div class="productinfo text-center">
+        <%= raw post.the_link_thumb({}, {style: "height: 200px; width: 100%; display: block;"}) %>
+        <span style="position: absolute; top: 5px; right: 22px"><%= raw post.the_featured_status %></span>
+        <h2><%= post.the_price %></h2>
+        <% if post.in_stock? %>
+          <% if post.the_qty_real.to_i > 0 %>
+            <%= form_tag(plugins_ecommerce_checkout_cart_add_path, :method => "post", :class => "form") do %>
+              <div class="">
+                <label class="">Qty: </label>
+                <%= number_field :cart, :qty, value: 1, min: 0, max: post.the_qty_real.to_i %>
+                <%= hidden_field :cart, :product_id, value: post.id %>
+                <button type="submit" class="btn"><i class="fa fa-shopping-cart"></i><%= t('plugin.ecommerce.add_to_cart') %></button>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="product-overlay">
+        <div class="overlay-content">
+      <div class="productinfo text-center">
+        <%= raw post.the_link_thumb({}, {style: "height: 200px; width: 100%; display: block;"}) %>
+          <h2><%= post.the_price %></h2>
+          <% if post.in_stock? %>
+            <% if post.the_qty_real.to_i > 0 %>
+              <%= form_tag(plugins_ecommerce_checkout_cart_add_path, :method => "post", :class => "form") do %>
+                <div class="">
+                  <label class="">Qty: </label>
+                  <%= number_field :cart, :qty, value: 1, min: 0, max: post.the_qty_real.to_i %>
+                  <%= hidden_field :cart, :product_id, value: post.id %>
+                </div>
+                  <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i><%= t('plugin.ecommerce.add_to_cart') %></button>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

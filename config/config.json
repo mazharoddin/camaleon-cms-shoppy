@@ -1,0 +1,14 @@
+{
+  "name" : "Shoppy",
+  "description" : "Free eCommerce theme, created to maximize your sales.",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::Shoppy::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["shoppy_on_install_theme"],
+    "on_inactive": ["shoppy_on_uninstall_theme"],
+    "on_theme_settings": ["shoppy_settings"]
+    //here all your hooks
+  }
+}

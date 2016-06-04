@@ -1,0 +1,81 @@
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+                <li><a href="#"><i class="fa fa-phone"></i>   <%= raw current_theme.the_field("phone_number") %></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> <%= raw current_theme.the_field("header_email") %></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+                <li><a href="<%= raw current_theme.the_field("header_fb") %>"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="<%= raw current_theme.the_field("header_twitter") %>"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="<%= raw current_theme.the_field("header_gplus") %>"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+               <a id="logo" class="navbar-brand" href="<%= current_site.the_url %>"><%= image_tag current_site.the_logo, class: "img-responsive" %></a>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+                <% if signin?  %>
+							<ul class="nav navbar-nav">
+                <li><a href="<%= cama_admin_dashboard_path %>"><i class="fa fa-user"></i> Account</a></li>
+                <li><a href="<%= plugins_ecommerce_orders_path %>"><i class="fa fa-crosshairs"></i> Orders</a></li>
+                <li><a href="<%= plugins_ecommerce_checkout_cart_path %>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="<%= cama_admin_logout_path %>"><i class="fa fa-lock"></i> Logout</a></li>
+							</ul>
+              <% else %>
+							<ul class="nav navbar-nav">
+                <li><a href="<%= cama_admin_login_path %>"><i class="fa fa-lock"></i> Login</a></li>
+							</ul>
+              <% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+            <div class="mainmenu pull-left">
+            <div class="nav navbar-nav collapse navbar-collapse">
+               <%= raw get_nav_menu('main_menu', 'nav navbar-nav nav-menu') %>
+            </div>
+            </div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+	

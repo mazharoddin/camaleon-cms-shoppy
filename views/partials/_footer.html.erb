@@ -1,0 +1,36 @@
+	<footer id="footer"><!--Footer-->
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="single-widget">
+                <%= raw current_theme.the_field("footer_left") %>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="single-widget">
+              <%= raw current_theme.the_field("footer_center") %>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="single-widget">
+              <%= raw current_theme.the_field("footer_right") %>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+              <p class="pull-left"> <%= raw current_theme.the_field("footer_bottom_left") %></p>
+              <p class="pull-right"><%= raw current_theme.the_field("footer_bottom_right") %></p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+	

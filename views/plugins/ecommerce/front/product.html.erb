@@ -1,0 +1,102 @@
+
+	
+	<section>
+		<div class="container">
+				<div class="col-sm-9 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div id="similar-product" class="carousel slide" data-ride="carousel">
+								
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <% @post.the_photos.each_with_index do |pthoto, index| %>                        <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>                                           <% end %>
+                                                                                                  </ol>
+
+								  <!-- Wrapper for slides -->
+								    <div class="carousel-inner">
+                       <% @post.the_photos.each_with_index do |pthoto, index| %>
+                          <div class="item <%= 'active' if index == 0 %>">
+                             <img src="<%= pthoto %>" class="center-block">
+                          </div>
+                      <% end %>
+									  </div>
+
+								  <!-- Controls -->
+								  <a class="left item-control" href="#similar-product" data-slide="prev">
+									<i class="fa fa-angle-left"></i>
+								  </a>
+								  <a class="right item-control" href="#similar-product" data-slide="next">
+									<i class="fa fa-angle-right"></i>
+								  </a>
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+                <h2><%= @post.the_title%></h2>
+                <p>SKU: <%= @post.the_sku%></p>
+								<span>
+                  <span><%= @post.the_price %></span>
+                  <span>
+                  <% if @post.in_stock? %>
+                  <% if @post.the_qty_real.to_i > 0 %>
+                     <%= form_tag(plugins_ecommerce_checkout_cart_add_path, :method => "post", :class => "form") do %>
+                       <div class="">
+                         <label class="">Quantity:</label>
+                  <%= number_field :cart, :qty, value: 1, min: 0, max: @post.the_qty_real.to_i %>
+                  <%= hidden_field :cart, :product_id, value: @post.id %>
+
+                  <button type="submit" class="btn"><i class="fa fa-shopping-cart"></i><%= t('plugin.ecommerce.add_to_cart') %></button>
+                  </div>
+                <% end %>
+                 <% end %>
+                  <% end %>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+                <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+								<li><a href="#companyprofile" data-toggle="tab">Specifications</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade active in" id="details" >
+                <div class="item-content">
+                    <%= raw @post.the_content %>    
+                 </div>
+							  </div>
+							
+							<div class="tab-pane fade" id="companyprofile" >
+              <%
+                @field_values = @post.get_field_values_hash
+              %>
+                <% attrs = []; @field_values[:ecommerce_attrs].to_a.each { |attr| attrs << JSON.parse(attr) rescue {} } %>
+                 <% if attrs.present? %>
+                   <div class="col-md-6">
+                    <table class="table table-bordered">
+                      <% attrs.each do |data| %>
+                        <tr>
+                          <td><strong><%= data['attr'] %></strong></td>
+                          <td><%= data['value'] %></td>                                                 </tr>
+                      <% end %>
+                    </table>
+                  </div>
+                 <% end %>
+	      		</div>
+							
+							<div class="tab-pane fade" id="tag" >
+							</div>
+							
+							<div class="tab-pane fade " id="reviews" >
+							</div>
+							
+						</div>
+					</div><!--/category-tab-->
+        </div>
+      </div>
+					
+	</section>
+	
