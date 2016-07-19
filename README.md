@@ -7,13 +7,14 @@ Shoppy is a modern and customizable eCommerce theme designed to increase your on
 # Installation
 * Clone this repository
 * Copy repository content to myproject/app/apps/themes/
+* Rename directory to 'shoppy'
 * navigate to admin->appearances->themes->select *Shoppy*
-* Create few products as featured and normal.
+* Create few products, selecting them as featured and normal.
 * Change theme settings if required.
 * navigate to your frontend to see the results
 
 # TO-DOs
-* Display Categories display
+* Categories display
 * Improve product image slideshow.
 * Pagination.
 * Clean up theme settings page.
