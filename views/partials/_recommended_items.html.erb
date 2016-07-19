@@ -5,7 +5,7 @@
 							<div class="carousel-inner">
 								<div class="item active">	
             <% current_site.the_posts("commerce").limit(3).decorate.each do |post| %>
-              <% if !post.featured? %>
+              <% if !post.eco_featured? %>
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
@@ -41,7 +41,7 @@
 								</div>
 								<div class="item">	
             <% current_site.the_posts("commerce").limit(3).reorder(13).decorate.each do |post| %>
-                <% if !post.featured? %>
+                <% if !post.eco_featured? %>
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">

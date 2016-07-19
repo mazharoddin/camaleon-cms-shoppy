@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require camaleon_cms/bootstrap.min.js
-//= require_tree .
+//= require ./price-range.js
+//= require ./shoppy.js

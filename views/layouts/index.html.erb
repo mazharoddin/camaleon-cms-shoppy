@@ -22,11 +22,15 @@
   <body>
     <%= render 'partials/header' %>
 
-    <section>
-    <div class="content">
-      <%= yield %>
-    </div>
-    </section>
+        <% if is_home? %>
+          <%= yield %>
+        <% else %>
+        <section>
+          <div class="container">
+            <%= yield %>
+          </div>
+        </section>
+      <% end %>
 
     <%= render 'partials/footer' %>
 

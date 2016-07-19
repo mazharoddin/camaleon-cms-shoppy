@@ -1,7 +1,7 @@
 <div class="features_items"><!--features_items-->
   <h2 class="title text-center">Featured Items</h2>
   <% current_site.the_posts("commerce").latest.limit(11).decorate.each do |post| %>
-    <% if post.featured? %>
+    <% if post.eco_featured? %>
       <%= render partial: 'plugins/ecommerce/front/post_list_item', locals: {post: post.decorate} %>
     <% end %>
   <% end %>

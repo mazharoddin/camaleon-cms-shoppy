@@ -10,5 +10,9 @@
  *
  *= require camaleon_cms/bootstrap.min.css
  *= require font-awesome
- *= require_tree .
+ *= require ./style
+ *= require ./animate
+ *= require ./price-range
+ *= require ./responsive
+ *= require ./prettyPhoto
  */
